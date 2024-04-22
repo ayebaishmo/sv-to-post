@@ -5,8 +5,12 @@ name = "pypi"
 
 [packages]
 psycopg2-binary = "*"
+numpy = "*"
+pandas = "*"
+ipykernel = "*"
 
 [dev-packages]
+ipykernel = "*"
 
 [requires]
 python_version = "3.11"
