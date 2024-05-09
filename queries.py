@@ -1,5 +1,5 @@
 CREATE_TITANIC_TABLE = '''
-    CTREATE TABLE IF NOT EXITS titanic_table
+    CREATE TABLE IF NOT EXISTS titanic_table
     ("Survived" INT,
     "Pclass" INT, 
     "Name" VARCHAR(200),

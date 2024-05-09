@@ -26,10 +26,14 @@ def read_csv(filename):
     return data
 
 def insert_data(conn, curs, data):
-    for row in data:
-        insert_query = ''''INSERT INTO titanic_table ("Survived", "Pclass", "Name", "Sex", "Age", "Siblings/Spouses Aboard", "Parents/Children Aboard", "Fare) 
-        VALUES (%s, %s, %s, %s, %s, %s, %s, %s)'''
-        modify_db(conn, curs, insert_query, row)
+    for row in data[1:]:
+        if len(row) == 8:
+            insert_query = '''INSERT INTO titanic_table ("Survived", "Pclass", "Name", "Sex", "Age", "Siblings/Spouses Aboard", "Parents/Children Aboard", "Fare")
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)'''
+
+            modify_db(conn, curs, insert_query, row)
+        else:
+             print("Skipping row as it doesn't have the correct number of columns:", row)
 
 
 if __name__ == "__main__":
